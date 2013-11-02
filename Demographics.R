@@ -1,0 +1,11 @@
+Age = as.matrix(read.csv(file="C:\\Users\\Eric Leingang\\Desktop\\Final Paper\\Variable Data\\Age.csv",head=TRUE,sep=","))
+Ethnicity = as.matrix(read.csv(file="C:\\Users\\Eric Leingang\\Desktop\\Final Paper\\Variable Data\\Ethnicity.csv",head=TRUE,sep=","))
+Gender = as.matrix(read.csv(file="C:\\Users\\Eric Leingang\\Desktop\\Final Paper\\Variable Data\\Gender.csv",head=TRUE,sep=","))
+Major = as.matrix(read.csv(file="C:\\Users\\Eric Leingang\\Desktop\\Final Paper\\Variable Data\\Major.csv",head=TRUE,sep=","))
+
+sink("demographics.txt")
+describe(Age)
+summary(Ethnicity)
+summary(Gender)
+summary(Major)
+sink()
