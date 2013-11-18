@@ -12,8 +12,12 @@ library(nFactors)
 library(GPArotation)
 library(mclust)
 
+
 Matrix.essay = na.omit(cbind(OPFocus,OverallFuture,ProAttRating,WritingFuture,EnvFocus,IntExtRating))
 write.csv((Matrix.essayCor = cor(Matrix.essay)),"FutureCor.csv")
+sink("AplphaIndiv.txt")
+alpha(Matrix.essay)
+sink()
 sink("Alpha.txt")
 alpha(cbind(OverallFuture,WritingFuture))
 alpha(na.omit(cbind(OverallFuture,OPFocus,ProAttRating,EnvFocus,IntExtRating)),keys = (c(rep(1,16),rep(-1,4))))
@@ -28,7 +32,7 @@ plotnScree(nSe, main = "     Scree Plot of Eigen Values and
            Nongraphical Solutions for Essay Data      ")
 
 sink("EssayAnalysis.txt")
-fa(r = Matrix.essayCor, nfactors = 2, rotate = "varimax", SMC = FALSE, 
+fa(r = Matrix.essayCor, nfactors = 2, rotate = "oblimin", SMC = FALSE, 
    fm = "pa",)
 sink()
 

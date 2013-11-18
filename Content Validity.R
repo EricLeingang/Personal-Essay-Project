@@ -15,3 +15,17 @@ Matrix.val2 = na.omit(cbind(EnvFocus,ProAttRating,ProET,ProSocT))
 
 Matrix.contentValidityCor2 = cor(Matrix.val2)
 write.csv(data.frame(Matrix.contentValidityCor2), "Content Validity Aggregate.csv")
+
+cor.test(ProET,EnvFocus[,1])
+cor.test(ProET,EnvFocus[,2])
+cor.test(ProET,EnvFocus[,3])
+cor.test(ProET,EnvFocus[,4])
+cor.test(ProSocT,ProAttRating[,1])
+cor.test(ProSocT,ProAttRating[,2])
+cor.test(ProSocT,ProAttRating[,3])
+cor.test(ProSocT,ProAttRating[,4])
+
+p.adjust(c(0.229,0.537,0.463,0.022,0.559,0.922,0.603,0.493), method = "holm")
+p.adjust(c(0.559,0.922,0.603,0.493), method = "holm")
+p.adjust(c(0.229,0.537,0.463,0.022), method = "holm")
+

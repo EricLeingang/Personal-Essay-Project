@@ -11,4 +11,4 @@ FPT = as.matrix(rowMeans(FuturePerspective, na.rm = TRUE, dims = 1))
 PFT = as.matrix(rowMeans(PresentFatalistic, na.rm = TRUE, dims = 1))
 PHT = as.matrix(rowMeans(PresentHedonistic, na.rm = TRUE, dims = 1))
 
-write.csv(cor(na.omit(cbind(PPT,PNT,FPT,PFT,PHT,OverallFuture))), "FutureCor.csv")
+write.csv(cor(na.omit(cbind(PPT,PNT,FPT,PFT,PHT,rowMeans(OverallFuture)))), "FutureCor.csv")

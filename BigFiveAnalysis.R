@@ -1,3 +1,4 @@
+GPA = as.matrix(read.csv(file="C:\\Users\\Eric Leingang\\Desktop\\Final Paper\\Variable Data\\GPA.csv",head=TRUE,sep=","))
 Conscientiousness = as.matrix(read.csv(file="C:\\Users\\Eric Leingang\\Desktop\\Final Paper\\Variable Data\\Conscientiousness.csv",head=TRUE,sep=","))
 Agreeableness = as.matrix(read.csv(file="C:\\Users\\Eric Leingang\\Desktop\\Final Paper\\Variable Data\\Agreeableness.csv",head=TRUE,sep=","))
 Extraversion = as.matrix(read.csv(file="C:\\Users\\Eric Leingang\\Desktop\\Final Paper\\Variable Data\\Extraversion.csv",head=TRUE,sep=","))
@@ -16,9 +17,17 @@ ConscT = matrix(rowMeans(Conscientiousness, na.rm = TRUE, dims = 1), dimnames = 
 ExtraT = matrix(rowMeans(Extraversion, na.rm = TRUE, dims = 1),dimnames = list(c(1:97),c("Extraversion")))
 AgreeT = matrix(rowMeans(Agreeableness, na.rm = TRUE, dims = 1),dimnames = list(c(1:97),c("Agreeableness")))
 NeuroT = matrix(rowMeans(Neurotocism, na.rm = TRUE, dims = 1),dimnames = list(c(1:97),c("Neuroticism")))
+OverT = as.matrix(rowMeans(OverallRating, na.rm = TRUE, dims = 1))
 
 Matrix.pers2 = na.omit(cbind(AgreeT,ConscT,ExtraT,NeuroT,
-                            OpenT,OverallRating))
+                            OpenT,rowMeans(OverallRating)))
 Matrix.persCor2 = cor(Matrix.pers2)
 B.5.Aggregate = data.frame(Matrix.persCor2)
 write.csv(B.5.Aggregate, "B5AggregateMatrix.csv")
+
+cor.test(GPA,OverT)
+cor.test(OverT, ExtraT)
+cor.test(OverT, ConscT)
+cor.test(OverT, NeuroT)
+cor.test(OverT, AgreeT)
+cor.test(OverT, OpenT)

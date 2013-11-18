@@ -1,0 +1,5 @@
+citation(package = "base", lib.loc = NULL)
+citation(package = "irr", lib.loc = NULL)
+citation(package = "psych", lib.loc = NULL)
+citation(package = "GPArotation", lib.loc = NULL)
+citation(package = "yhat", lib.loc = NULL)
