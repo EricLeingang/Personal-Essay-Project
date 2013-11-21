@@ -5,10 +5,15 @@ PresentFatalistic = as.matrix(read.csv(file="C:\\Users\\Eric Leingang\\Desktop\\
 PresentHedonistic = as.matrix(read.csv(file="C:\\Users\\Eric Leingang\\Desktop\\Final Paper\\Variable Data\\PresentHedonistic.csv",head=TRUE,sep=","))
 OverallFuture = as.matrix(read.csv(file="C:\\Users\\Eric Leingang\\Desktop\\Final Paper\\Variable Data\\OverallFuture.csv",head=TRUE,sep=","))
 
+OverF = as.matrix(rowMeans(OverallFuture, na.rm = TRUE, dims = 1))
 PPT = as.matrix(rowMeans(PastPositive, na.rm = TRUE, dims = 1))
 PNT = as.matrix(rowMeans(PastNegative, na.rm = TRUE, dims = 1))
 FPT = as.matrix(rowMeans(FuturePerspective, na.rm = TRUE, dims = 1))
 PFT = as.matrix(rowMeans(PresentFatalistic, na.rm = TRUE, dims = 1))
 PHT = as.matrix(rowMeans(PresentHedonistic, na.rm = TRUE, dims = 1))
 
-write.csv(cor(na.omit(cbind(PPT,PNT,FPT,PFT,PHT,rowMeans(OverallFuture)))), "FutureCor.csv")
+cor.test(OverF,PPT)
+cor.test(OverF,PNT)
+cor.test(OverF,FPT)
+cor.test(OverF,PFT)
+cor.test(OverF,PHT)

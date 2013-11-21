@@ -4,7 +4,6 @@ VFICareer = as.matrix(read.csv(file="C:\\Users\\Eric Leingang\\Desktop\\Final Pa
 GPA = as.matrix(read.csv(file="C:\\Users\\Eric Leingang\\Desktop\\Final Paper\\Variable Data\\GPA.csv",head=TRUE,sep=","))
 
 sink("volunteerHyp.txt")
-summary((a = aov(lm(GPA ~ rowMeans(VFICareer)*VolPY))))
-summary((b = aov(lm(GPA ~ VolCurrent*rowMeans(VFICareer)))))
-summary((b = aov(lm(GPA ~ VolCurrent*VolPY))))
+summary((a = aov(lm(GPA ~ (VolCurrent*rowMeans(VFICareer))))))
+summary((b = aov(lm(GPA ~ (VolPY*rowMeans(VFICareer))))))
 sink()
